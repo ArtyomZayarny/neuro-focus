@@ -1,0 +1,222 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg: #0b0f1a;
+  --text: #ffffff;
+  --text-primary: #ffffff;
+  --text-secondary: rgba(255, 255, 255, 0.8);
+  --text-tertiary: rgba(255, 255, 255, 0.6);
+  --text-quaternary: rgba(255, 255, 255, 0.5);
+  --card: rgba(255, 255, 255, 0.05);
+  --border: rgba(255, 255, 255, 0.1);
+}
+
+:root[data-theme="light"] {
+  --bg: #f7f8fb;
+  --text: #0b0f1a;
+  --text-primary: #0b0f1a;
+  --text-secondary: rgba(11, 15, 26, 0.8);
+  --text-tertiary: rgba(11, 15, 26, 0.6);
+  --text-quaternary: rgba(11, 15, 26, 0.5);
+  --card: #ffffff;
+  --border: rgba(0, 0, 0, 0.08);
+}
+
+html,
+body {
+  background: var(--bg);
+  color: var(--text);
+}
+
+/* Adaptive text colors */
+.text-adaptive-primary {
+  color: var(--text-primary);
+}
+
+.text-adaptive-secondary {
+  color: var(--text-secondary);
+}
+
+.text-adaptive-tertiary {
+  color: var(--text-tertiary);
+}
+
+.text-adaptive-quaternary {
+  color: var(--text-quaternary);
+}
+
+/* Hover states for adaptive text */
+.hover\:text-adaptive-primary:hover {
+  color: var(--text-primary);
+}
+
+/* Custom animations */
+@keyframes bounce {
+  0%,
+  100% {
+    transform: scaleY(0.8);
+    opacity: 0.4;
+  }
+  50% {
+    transform: scaleY(1.3);
+    opacity: 0.9;
+  }
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+/* Smooth transitions for interactive elements */
+button,
+a {
+  transition: all 0.2s ease-in-out;
+}
+
+/* Adaptive button styles */
+.btn-adaptive {
+  background: var(--card);
+  border: 1px solid var(--border);
+  color: var(--text-primary);
+}
+
+.btn-adaptive:hover {
+  background: var(--border);
+}
+
+/* Hover effects */
+.hover-lift:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+}
+
+/* Audio visualizer animation */
+.audio-bar {
+  animation: bounce 2s ease-in-out infinite;
+  transform-origin: bottom;
+  will-change: transform;
+  transition: all 0.1s ease-out;
+}
+
+/* Light theme audio bars */
+:root[data-theme="light"] .audio-bar {
+  background: rgba(0, 0, 0, 0.3) !important;
+}
+
+/* Light theme border adjustments */
+:root[data-theme="light"] button[style*="borderColor"] {
+  border-color: rgba(0, 0, 0, 0.15) !important;
+}
+
+/* Card styles */
+.card-bg {
+  background: var(--card);
+  border: 1px solid var(--border);
+}
+
+/* Button styles */
+.btn-primary {
+  background: linear-gradient(45deg, #6366f1, #38bdf8);
+  box-shadow: 0 10px 24px -8px #38bdf880;
+}
+
+.btn-secondary {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+}
+
+.btn-outline {
+  border: 1px solid var(--border);
+  background: transparent;
+}
+
+.btn-default {
+  background: rgba(255, 255, 255, 0.06);
+}
+
+/* Light theme button adjustments */
+:root[data-theme="light"] .btn-secondary {
+  background: rgba(0, 0, 0, 0.05);
+}
+
+:root[data-theme="light"] .btn-outline {
+  border-color: rgba(0, 0, 0, 0.15);
+}
+
+:root[data-theme="light"] .btn-default {
+  background: rgba(0, 0, 0, 0.05);
+}
+
+/* Staggered animations for cards */
+.card-stagger:nth-child(1) {
+  animation-delay: 0ms;
+}
+.card-stagger:nth-child(2) {
+  animation-delay: 100ms;
+}
+.card-stagger:nth-child(3) {
+  animation-delay: 200ms;
+}
+
+/* Card animations */
+.card-enter {
+  animation: fadeIn 0.6s ease-out;
+}
+
+.card-hover {
+  transition: all 0.3s ease-in-out;
+}
+
+.card-hover:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.3);
+}
+
+/* Light theme specific adjustments */
+:root[data-theme="light"] .card-hover:hover {
+  box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.1);
+}
+
+:root[data-theme="light"] .hover-lift:hover {
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
+}
